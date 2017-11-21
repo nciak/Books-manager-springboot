@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Book List</title>
+    <link rel="stylesheet" th:href="@{/style.css}" media="all"/>
+</head>
+<body>
+<div class="flex-container">
+    <header>
+        <h1>The Best Books in the WORLD</h1>
+        Read Them All!
+        <form class="searching" th:action="@{/book/find}" th:object="${searchmodel}" method="post">
+            <input th:field="${searchmodel.value}"
+                   type="text"
+                   id="title"
+                   name="title" />
+            <input type="submit" name="submit" value="Search"> </input>
+        </form>
+    </header>
+
+    <nav class="nav">
+
+        <ul>
+            <li><a th:href="@{/book/add}">Add new Book</a></li>
+            <li><a th:href="@{/book/find}">Find Books</a></li>
+            <li></li>
+
+
+        </ul>
+
+    </nav>
+
+    <article class="article">
+        <h1>List of Books</h1>
+
+            <table>
+
+                <p th:each="b : ${list}">
+
+                    <span th:text="${b.title}">Title</span> -
+                    <span th:text="${b.author}">Author</span> -
+                    (Price: <span th:text="${b.price}">Price</span>)
+                    <a th:href="@{/book/{id}(id=${b.id})}">Show Info</a>
+                    <a th:href="@{/book/remove/{id}(id=${b.id})}">Remove</a>
+                    <a th:href="@{/book/edit/{id}(id=${b.id})}">Edit</a>
+
+
+                </p>
+
+
+            </table>
+    </article>
+
+    <footer>Copyright &copy; Norbert Ciak</footer>
+</div>
+
+
+</body>
+</html>

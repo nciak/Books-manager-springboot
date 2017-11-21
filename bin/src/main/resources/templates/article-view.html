@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Article View</title>
+</head>
+<body>
+<h1 th:text ="${article.title}">TITLE</h1>
+<p algin="left" th:text = "${article.content}">CONTENT</p>
+
+<ul><p th:text = "${article.tags}">TAGS</p></ul>
+
+<a th:href="@{/article}"><button type="button">Change Article</button></a>
+</body>
+</html>

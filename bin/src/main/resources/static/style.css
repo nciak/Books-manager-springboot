@@ -1,0 +1,67 @@
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.flex-container > * {
+    padding: 10px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+
+.article {
+    text-align: center;
+}
+
+header {background-image: url('headback.jpg');color:white;background-size: cover}
+footer {background: #aaa;color:white;}
+
+input[type=button], input[type=submit], input[type=reset], input[type=text] {
+    background-color: #99ff99;
+    border-radius: 25px;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+
+}
+input[type=button], input[type=submit], input[type=reset]{
+cursor: pointer;
+}
+
+
+.nav {background:#eee;}
+
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+.nav ul a {
+    text-decoration: none;
+}
+.error
+{
+border: 1px solid red;
+}
+.error-text
+{
+color: red;
+}
+.annotation
+{
+color:#990000
+}
+
+.searching
+{
+text-align: right;
+}
+
+@media all and (min-width: 768px) {
+    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
+    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
+    footer {-webkit-order:3;order:3;}
+}

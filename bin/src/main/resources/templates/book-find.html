@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Find The Book</title>
+    <link rel="stylesheet" th:href="@{/style.css}" media="all"/>
+</head>
+<body>
+<div class="flex-container">
+    <header>
+        <h1>The Best Books in the WORLD</h1>
+        Read Them All!
+    </header>
+
+    <nav class="nav">
+
+        <ul>
+            <li><a th:href="@{/book/add}">Add new Book</a></li>
+            <li><a th:href="@{/book/find}">Find Books</a></li>
+            <li></li>
+        </ul>
+
+    </nav>
+
+    <article class="article">
+        <h1>Find the Book</h1>
+
+        TITLE:
+        <span th:text="${book.title}">Title</span> -
+        AUTHOR:
+        <span th:text="${book.author}">Author</span> -
+        PRICE:
+        <span th:text="${book.price}">Price</span> PLN
+    </article>
+
+    <footer>Copyright &copy; Norbert Ciak</footer>
+</div>
+
+
+</body>
+</html>

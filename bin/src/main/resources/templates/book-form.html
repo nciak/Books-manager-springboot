@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Book form</title>
+    <link rel= "stylesheet" th:href="@{/style.css}" media="all" />
+</head>
+<body>
+
+
+<div class="flex-container">
+    <header>
+        <h1>The Best Books in the WORLD</h1>
+        Read Them All!
+    </header>
+
+    <nav class="nav">
+
+        <ul>
+            <li><a th:href="@{/book/add}">Add new Book</a></li>
+            <li><a th:href="@{/book/find}">Find Books</a></li>
+            <li></li>
+        </ul>
+
+    </nav>
+
+    <article class="article">
+        <h1>Add new Book</h1>
+        <p class="annotation">Please enter the book information in the correct Field!</p>
+        <table>
+
+            <form th:action="@{/book/add}" th:object="${book}" method="post">
+
+                <input type="hidden" th:field="${book.id}" th:value="${book.id}"> </input>
+                <div>
+                    <label for="title">Title:</label><br/>
+                    <input th:field="${book.title}"
+                           type="text"
+                           id="title"
+                           name="title"
+                           th:class="${#fields.hasErrors('title') ? 'error' : ''}" />
+                    <p th:if="${#fields.hasErrors('title')}" th:errors="${book.title}"></p>
+                </div>
+                <div>
+                    <label for="author">Author:</label><br/>
+                    <input th:field="${book.author}"
+                           type="text"
+                           id="author"
+                           name="author"
+                           th:class="${#fields.hasErrors('author') ? 'error' : ''}" />
+                    <p th:if="${#fields.hasErrors('author')}" th:errors="${book.author}"></p>
+                </div>
+                <div>
+                    <label for="price">Price:</label><br/>
+                    <input th:field="${book.price}"
+                           type="number"
+                           id="price"
+                           name="price"
+                           th:class="${#fields.hasErrors('price') ? 'error' : ''}" />
+                    <p th:if="${#fields.hasErrors('price')}" th:errors="${book.price}"></p>
+
+                </div>
+                <div>
+                    <input type="submit" name="submit" value="Add"> </input>
+                    <a th:href="@{/book}">
+                        <button type="button">View List</button>
+                    </a>
+                </div>
+
+            </form>
+        </table>
+    </article>
+
+    <footer>Copyright &copy; Norbert Ciak</footer>
+</div>
+</body>
+</html>
